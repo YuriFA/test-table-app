@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.head {
+  height: 10vh;
+  background-color: #4c4c4c;
+}
+
+.menu {
+  height: 100%;
+  ul {
+    height: 100%;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    &>li {
+      padding: 0;
+      &>a {
+        display: block;
+        padding: 10px 20px;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+          color: #ccc;
+          background-color: #5d5757;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  height: 90vh;
+  width: 100vw;
+  h1 {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+.table-container {
+  height: 100%;
+  overflow: scroll;
+  &>table {
+    table-layout: fixed;
+    width: 100vw;
+    border-collapse: collapse;
+    td {
+      width: 300px;
+      height: 32px;
+      padding-left: 10px;
+      border: 1px solid #5d5757;
+      box-sizing: border-box;
+      transition: background-color 1s;
+    }
+  }
+}
