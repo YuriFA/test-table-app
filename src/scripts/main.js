@@ -86,6 +86,8 @@ const updateContent = () => {
 
 window.addEventListener('hashchange', updateContent);
 window.addEventListener('load', () => {
-  location.assign('#hello');
+  if (!location.hash) {
+    location.assign('#hello');
+  }
   updateContent();
 });
