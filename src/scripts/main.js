@@ -20,6 +20,7 @@ function getRandomRows(rowsCount, colsCount = MAX_COLS) {
   return rowsData;
 }
 
+const menuLinks = document.querySelectorAll('.menu a');
 const contentNode = document.querySelector('.content');
 
 const helloNode = DOMBuilder.createElement('h1', {
@@ -63,13 +64,29 @@ const links = {
   table: tableContainerNode,
 };
 
+const updateMenu = (hash) => {
+  Array.prototype.slice.call(menuLinks)
+    .forEach((link) => {
+      console.log(hash, link);
+      if (hash === link.getAttribute('href')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+};
+
 const updateContent = () => {
   const content = links[location.hash.slice(1)] || '';
   contentNode.innerHTML = '';
   if (content) {
     contentNode.appendChild(content);
   }
+  updateMenu(location.hash);
 };
 
 window.addEventListener('hashchange', updateContent);
-window.addEventListener('load', updateContent);
+window.addEventListener('load', () => {
+  location.assign('#hello');
+  updateContent();
+});
