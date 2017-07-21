@@ -67,7 +67,6 @@ const links = {
 const updateMenu = (hash) => {
   Array.prototype.slice.call(menuLinks)
     .forEach((link) => {
-      console.log(hash, link);
       if (hash === link.getAttribute('href')) {
         link.classList.add('active');
       } else {
